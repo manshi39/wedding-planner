@@ -1,50 +1,30 @@
-import React, { useState } from 'react';
-import CityCard from './CityCard'; // Assuming CityCard component exists
-import BanquetDetails from './BanaquestDetails';// Import BanquetDetails
+import React from 'react';
+import BanquetCard from './BanquestCard';// Assuming BanquetCard component exists
+import '../styles/Banquets.css'; // Import CSS for styling
 
-const banquetsData = [ // Define banquetsData here
-  {
-    id: 1,
-    name: 'The Grand Ballroom',
-    city: 'Mumbai',
-    imageUrl: 'https://example.com/grand-ballroom.jpg',
-    description: 'A majestic hall for grand weddings...',
-    capacity: 500,
-    price: 10000,
-  },
-  // ... other banquets
-]; // Move this outside the component
+// Define navigateToBanquetPage function before using it in banquetsData
+const navigateToBanquetPage = (banquetName) => {
+  // Placeholder implementation, replace with your actual navigation logic
+  alert(`Opening banquet page for ${banquetName}`); // For demonstration purposes
+  // Add your navigation logic to open BanquetPage.js here
+};
+
+const banquetsData = [
+  { banquetName: 'Palacio Banquet', image: require("../images/banquet1.jpg"), onButtonClick: () => navigateToBanquetPage('The Grand Ballroom') },
+  { banquetName: 'Sarthi Banquet', image: require("../images/banquet2.jpg"), onButtonClick: () => navigateToBanquetPage('Royal Banquet Hall') },
+  { banquetName: 'Crystal Palace', image: require("../images/banquet3.jpg"), onButtonClick: () => navigateToBanquetPage('Crystal Palace') },
+  { banquetName: 'J B Banquet', image: require("../images/banquet4.jpg"), onButtonClick: () => navigateToBanquetPage('Golden Sands Banquet') },
+];
 
 function Banquets() {
-  const [selectedBanquetId, setSelectedBanquetId] = useState(null);
-
-  const handleBanquetClick = (banquetId) => {
-    setSelectedBanquetId(banquetId);
-  };
-
-  const selectedBanquet = selectedBanquetId
-    ? banquetsData.find((banquet) => banquet.id === selectedBanquetId)
-    : null;
-
   return (
     <section className="banquets">
-      <h2>Banquets</h2>
-      {selectedBanquetId ? (
-        <BanquetDetails banquet={selectedBanquet} />
-      ) : (
-        <ul>
-          {banquetsData.map((banquet) => (
-            <CityCard
-              key={banquet.id}
-              cityName={banquet.name} // Assuming CityCard displays city name
-              imageUrl={banquet.imageUrl}
-              onButtonClick={() => handleBanquetClick(banquet.id)} // Pass banquet ID for details
-            />
-          ))}
-          
-        </ul>
-        
-      )}
+      <h2>BANQUETS</h2>
+      <div className="banquets-container">
+        {banquetsData.map((banquet) => (
+          <BanquetCard key={banquet.banquetName} {...banquet} />
+        ))}
+      </div>
     </section>
   );
 }

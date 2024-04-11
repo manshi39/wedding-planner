@@ -1,4 +1,4 @@
-.city-card {
+.banquet-card {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -9,19 +9,19 @@
     width: 250px; /* Adjust width as needed */
   }
   
-  .city-card img {
+  .banquet-card img {
     width: 100%; /* Set image to fill card width */
     height: 150px; /* Adjust image height as needed */
     object-fit: cover; /* Crop image to fit within the container */
   }
   
-  .city-card h3 {
+  .banquet-card h2 {
     margin: 10px 0;
     text-align: center;
   }
   
-  .city-card button {
-    margin-top: 20px;
+  .banquet-card button {
+    margin-top: 20px; 
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
@@ -30,20 +30,19 @@
     cursor: pointer;
     transition: background-color 0.2s ease-in-out;
   }
-  
-  .city-card button:hover {
+  .banquet-card button:hover {
     background-color: #222;
   }
-
-  .city-container {
+  
+  .banquets-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
   }
   
   /* Adjustments for BanquetCard */
-  .city-card {
-    flex: 0 0 calc(20% - 20px); /* Adjust width for each card */
-    margin: 5px;
+  .banquet-card {
+    flex: 0 0 calc(25% - 20px); /* Adjust width for each card */
+    margin: 10px;
   }
   
