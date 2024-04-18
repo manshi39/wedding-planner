@@ -3,7 +3,7 @@ import "../styles/Header.css";
 import LoginPage from './LoginPage'; // Assuming the CSS file exists
 
 function Header({ onLoginClick }) { // Optional prop for login button click handler
-
+ 
   return (
     <header className="header">
       <div className="header-content">
