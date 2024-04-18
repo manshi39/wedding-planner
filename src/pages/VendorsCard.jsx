@@ -1,11 +1,15 @@
 import React from 'react';
+import '../styles/VendorCard.css'; // Import CSS for styling
 
-function VendorCard({ image, title, description }) {
+function VendorCard({ vendorName, logo, description, onButtonClick }) {
+  // ... rest of VendorCard component code
+
   return (
     <div className="vendor-card">
-      <img src={image} alt={title} />
-      <h3>{title}</h3>
+      <img src={logo} alt={vendorName} />
+      <h3>{vendorName}</h3>
       <p>{description}</p>
+      <button onClick={onButtonClick}>Visit Vendor</button>
     </div>
   );
 }

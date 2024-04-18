@@ -1,40 +1,32 @@
 import React from 'react';
-import VendorCard from '../pages/VendorsCard';
+import VendorCard from './VendorCard';
+import '../styles/VendorCard.css'; // Import CSS for styling
+
+// Define navigateToVendorCard function before using it in vendorsData
+const navigateToVendorCard = (vendorName) => {
+  // Placeholder implementation, replace with your actual navigation logic
+  alert(`Opening vendor page for ${vendorName}`); // For demonstration purposes
+  // Add your navigation logic to open VendorCard.js here
+};
 
 const vendorsData = [
-  {
-    image: 'https://example.com/photographer.jpg',
-    title: 'Photographers',
-    description: 'Capture your wedding memories with our talented photographers.',
-  },
-  {
-    image: 'https://example.com/caterer.jpg',
-    title: 'Caterers',
-    description: 'Delicious food options to make your wedding reception unforgettable.',
-  },
-  {
-    image: 'https://example.com/makeup-artist.jpg',
-    title: 'Makeup Artists',
-    description: 'Look your best on your wedding day with our expert makeup artists.',
-  },
-  {
-    image: 'https://example.com/makeup-artist.jpg',
-    title: 'Makeup Artists',
-    description: 'Look your best on your wedding day with our expert makeup artists.',
-  },
+  { vendorName: 'Palacio Banquet', image: require("../images/image1.jpeg"), onButtonClick: () => navigateToVendorCard('Palacio Banquet') },
+  { vendorName: 'Sarthi Banquet', image: require("../images/image2.jpeg"), onButtonClick: () => navigateToVendorCard('Sarthi Banquet') },
+  { vendorName: 'Crystal Palace', image: require("../images/image3.jpeg"), onButtonClick: () => navigateToVendorCard('Crystal Palace') },
+  { vendorName: 'J B Banquet', image: require("../images/image4.jpeg"), onButtonClick: () => navigateToVendorCard('J B Banquet') },
 ];
 
-function Vendors() {
+function VendorPage() {
   return (
     <section className="vendors">
-      <h2>Our Vendors</h2>
-      <div className="vendor-list">
+      <h2>Vendors</h2>
+      <div className="vendors-container">
         {vendorsData.map((vendor) => (
-          <VendorCard key={vendor.title} {...vendor} />
+          <VendorCard key={vendor.vendorName} {...vendor} />
         ))}
       </div>
     </section>
   );
 }
 
-export default Vendors;
+export default VendorPage;
